@@ -10,9 +10,17 @@
 <!-- Javascript Libraries -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="scripts/angular/angular.js"></script>
+
+<!-- Our Javascript -->
+<!-- Our JavaScript -->
+<script src="js/application.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/services.js"></script>
 
 </head>
 
+<body ng-controller="LoginController">
     <div class="container">
       <div class="row">
         <div class="col-md-3"></div>
@@ -23,27 +31,35 @@
 
                 <div class="col-md-2"></div>
                   <div class="col-md-8">
+
                     <form class="input-group">
-                      <div class="row">
+                      <div class="row rowWithBottomMargin">
                         <div class="col-md-2"></div>
                         <div class="col-md-12">
                           <div class="input-group">
                             <span class="input-group-addon" id="basic-addon1">Username</span>
-                            <input type="text" class="form-control" placeholder="username" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="username" aria-describedby="basic-addon1" ng-model="username">
                           </div>
                         </div>
                       </div>
 
-                      <div class="row">
+                      <div class="row rowWithBottomMargin">
                         <div class="col-md-2"></div>
                         <div class="col-md-12">
                           <div class="input-group">
                       			<span class="input-group-addon" id="basic-addon1">Password</span>
-                      			<input type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
+                      			<input type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1" ng-model="password">
                       		</div>
                         </div>
                         <div class="col-md-2"></div>
                       </div>
+
+                      <div class="row rowWithBottomMargin">
+                        <div class="col-md-2"></div>
+                        <div class="cold-md-8">
+                          <a class="btn btn-primary btn-block btn-lg" ng-click="login()">Login</a>
+                        </div>
+                        <div class="col-md-2"></div>
                     </form>
                   </div>
                 <div class="col-md-2"></div>

@@ -11,6 +11,14 @@
     margin-bottom: 10px;
 }
 
+.loginInput{
+  margin-bottom: 10px;
+}
+
+.rowWithBottomMargin{
+  margin-bottom: 10px;
+}
+
 .infoFields{
     margin-top: 20px;
 }
