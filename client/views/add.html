@@ -1,0 +1,127 @@
+<html ng-app="AssetsWebsite">
+<head>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Our CSS -->
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Javascript Libraries -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+
+<body ng-controller="AddController">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <label for="assetNumber"> Asset Number </label>
+                        <input class="form-control" type="text" id="assetNumber">
+                    </div>
+                </div> 
+            </div>
+
+            <div class="row infoFields">
+                
+                <div class="col-md-6" id="manInfoCol">
+                    <h3> Manufacturer Info </h3>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="manufacturerName"> Name </label>
+                                    <input type="text" class="form-control" id="manufacturerName">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="manufacturerName"> Address </label>
+                                    <input type="text" class="form-control" id="manufacturerAddress">
+                                </div>
+                            </div>   
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="manufacturerPhone"> Phone </label>
+                                    <input type="text" class="form-control" id="manufacturerPhone">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="manufacturerWeb"> Website </label>
+                                    <input type="text" class="form-control" id="manufacturerWeb">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" id="assetInfoCol">
+                    <h3> Asset Info </h3>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="modelName"> Model </label>
+                                    <input type="text" class="form-control" id="modelName">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="assetPurchaceDate"> Date Purchased </label>
+                                    <input type="text" class="form-control" id="assetPurchaseDate">
+                                </div>
+                            </div>   
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="assetPurchasePrice"> Purchase Price </label>
+                                    <input type="text" class="form-control" id="assetPurchasePrice">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="warExpirationDate"> Warranty Expiration Date </label>
+                                    <input type="text" class="form-control" id="warExpirationDate">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="retiredDate"> Retired Date </label>
+                                    <input type="text" class="form-control" id="retiredDate">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="description">Description:</label>
+                                        <textarea class="form-control" rows="5" id="description"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+
+            <div class="row">
+                  <div class="form-group">
+                    <label for="description">Comments:</label>
+                    <textarea class="form-control" rows="5" id="description" ng-model="model.description"></textarea>
+                  </div>
+            </div>
+        </div>
+    </div>
+</body>
+    
+</html>
