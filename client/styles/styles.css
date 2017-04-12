@@ -8,9 +8,13 @@
 }
 
 .inputRow{
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
 
 .infoFields{
     margin-top: 20px;
+}
+
+.centered{
+  text-align: center;
 }
