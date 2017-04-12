@@ -12,6 +12,10 @@ module.exports = function(app){
     app.get('/add', function(req, res){
         res.sendFile(path.resolve(__dirname + '/../client/views/add.html'))
     });
+    
+    app.get('/search', function(req, res){
+        res.sendFile(path.resolve(__dirname + '/../client/views/search.html'));
+    });
 
     // Static mapping redirects
     app.use('/js', express.static(__dirname + '/../client/js'));
