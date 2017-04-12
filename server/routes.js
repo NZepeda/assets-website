@@ -9,6 +9,10 @@ module.exports = function(app){
         res.sendFile(path.resolve(__dirname + '/../client/views/index.html'));
     });
 
+	app.get('/search', function(req, res){
+        res.sendFile(path.resolve(__dirname + '/../client/views/search.html'));
+    });
+
     // Static mapping redirects
     app.use('/js', express.static(__dirname + '/../client/js'));
     app.use('/css', express.static(__dirname + '/../client/css'));
