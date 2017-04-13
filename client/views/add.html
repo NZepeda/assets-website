@@ -27,7 +27,7 @@
                 <div class="col-md-12">
                     <div class="row">
                         <label for="assetNumber"> Asset Number </label>
-                        <input class="form-control" type="text" id="assetNumber">
+                        <input class="form-control" type="text" id="assetNumber" ng-model="info.assetNumber">
                     </div>
                 </div>
             </div>
@@ -41,28 +41,28 @@
                             <div class="row">
                                 <div class="col-md-8">
                                     <label for="manufacturerName"> Name </label>
-                                    <input type="text" class="form-control" id="manufacturerName">
+                                    <input type="text" class="form-control" id="manufacturerName" ng-model="manufacturer.name">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-8">
                                     <label for="manufacturerName"> Address </label>
-                                    <input type="text" class="form-control" id="manufacturerAddress">
+                                    <input type="text" class="form-control" id="manufacturerAddress" ng-model="manufacturer.address">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-8">
                                     <label for="manufacturerPhone"> Phone </label>
-                                    <input type="text" class="form-control" id="manufacturerPhone">
+                                    <input type="text" class="form-control" id="manufacturerPhone" ng-model="manufacturer.phone">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-8">
                                     <label for="manufacturerWeb"> Website </label>
-                                    <input type="text" class="form-control" id="manufacturerWeb">
+                                    <input type="text" class="form-control" id="manufacturerWeb" ng-model="manufacturer.website">
                                 </div>
                             </div>
                         </div>
@@ -76,35 +76,35 @@
                             <div class="row">
                                 <div class="col-md-8">
                                     <label for="modelName"> Model </label>
-                                    <input type="text" class="form-control" id="modelName">
+                                    <input type="text" class="form-control" id="modelName" ng-model="info.model">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-8">
                                     <label for="assetPurchaceDate"> Date Purchased </label>
-                                    <input type="text" class="form-control" id="assetPurchaseDate">
+                                    <input type="text" class="form-control" id="assetPurchaseDate" ng-model="info.datePurchased">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-8">
                                     <label for="assetPurchasePrice"> Purchase Price </label>
-                                    <input type="text" class="form-control" id="assetPurchasePrice">
+                                    <input type="text" class="form-control" id="assetPurchasePrice" ng-model="info.purchasePrice">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-8">
                                     <label for="warExpirationDate"> Warranty Expiration Date </label>
-                                    <input type="text" class="form-control" id="warExpirationDate">
+                                    <input type="text" class="form-control" id="warExpirationDate" ng-model="info.warExpiration">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-8">
                                     <label for="retiredDate"> Retired Date </label>
-                                    <input type="text" class="form-control" id="retiredDate">
+                                    <input type="text" class="form-control" id="retiredDate" ng-model="info.retiredDate">
                                 </div>
                             </div>
 
@@ -112,7 +112,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label for="description">Description:</label>
-                                        <textarea class="form-control" rows="5" id="description"></textarea>
+                                        <textarea class="form-control" rows="5" id="description" ng-model="info.description"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -124,8 +124,14 @@
             <div class="row">
                   <div class="form-group">
                     <label for="description">Comments:</label>
-                    <textarea class="form-control" rows="5" id="description" ng-model="model.description"></textarea>
+                    <textarea class="form-control" rows="5" id="description" ng-model="info.comments"></textarea>
                   </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="btn btn-primary btn-block btn-lg" ng-click="addAsset()">Add New Asset</a>
+                </div>
             </div>
         </div>
     </div>

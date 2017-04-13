@@ -5,6 +5,13 @@ var bodyParser = require('body-parser');
 module.exports = function(app){
     // Set up endpoint for the records here
 
+    var service = require('./controllers/serviceController');
+
+    // API Endpoint
+    app.post('/login', bodyParser.json(), service.login)
+
+    //
+
     app.get('/', function(req, res){
         res.sendFile(path.resolve(__dirname + '/../client/views/index.html'));
     });

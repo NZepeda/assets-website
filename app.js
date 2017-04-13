@@ -5,13 +5,14 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 
 // Require the models here
+require('./server/models/user');
 
 var app = express();
 
 var port = process.env.PORT || 8000;
 
 // Set up mongo connection
-var mongoUrl = "mongodb://localhost:27017/assetswebsite"
+var mongoUrl = "mongodb://admin:pass123@ds159330.mlab.com:59330/assets"
 
 mongoose.connect(mongoUrl);
 

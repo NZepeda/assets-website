@@ -4,6 +4,20 @@ serviceModule.service('Data', ['$location', '$http', '$window', '$q', function($
 
     var data = {};
 
+    data.login = function(user){
+
+        var req = {
+            method: 'POST',
+            url: 'http://' + location.host + '/login',
+            data: user
+        }
+
+        return $http(req).then(function(response){
+            return response;
+        }).catch(function(error){
+            console.log(error);
+        });
+    }
     // ToDo: Implement service functions here
     return data;
 }]);
