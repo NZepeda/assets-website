@@ -6,7 +6,7 @@ exports.login = function(req, res){
     var result = {
         loginSuccess: false
     };
-    console.log(req.body);
+
     User.findOne({username: req.body.username, password: req.body.password}, function(err, user){
         if(err){
             res.status(500).send("Unable to query db");
@@ -14,7 +14,6 @@ exports.login = function(req, res){
         if(user){
             result.loginSuccess = true;                        
         }
-        
         res.status(200).send(result);
     });
     
