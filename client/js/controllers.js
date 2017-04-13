@@ -14,7 +14,7 @@ controllerModule.controller('LoginController', ['$scope', '$q', '$location', '$w
     }
 
     Data.login(user).then(function(response){
-      console.log(response.data);
+      
       if(response.data.loginSuccess == true){
         $window.location.href = '/add';
       }
