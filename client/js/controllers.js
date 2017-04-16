@@ -26,7 +26,7 @@ controllerModule.controller('LoginController', ['$scope', '$q', '$location', '$w
   }
 }]);
 
-controllerModule.controller('AddController', ['$scope','$q', function($scope, $q){
+controllerModule.controller('AddController', ['$scope','$q', 'Data', function($scope, $q, Data){
   
   $scope.manufacturer = {
     name: "",
@@ -36,6 +36,7 @@ controllerModule.controller('AddController', ['$scope','$q', function($scope, $q
   }
 
   $scope.info = {
+    category: "",
     assetNumber: "",
     model: "",
     datePurchased: "",
@@ -43,7 +44,6 @@ controllerModule.controller('AddController', ['$scope','$q', function($scope, $q
     warExpiration: "",
     retiredDate: "",
     description: "",
-    comments: []
   }
 
   $scope.asset = {
@@ -52,7 +52,10 @@ controllerModule.controller('AddController', ['$scope','$q', function($scope, $q
   }
 
   $scope.addAsset = function(){
-    console.log($scope.model);
+    console.log($scope.asset);
+    Data.addAsset($scope.asset).then(function(response){
+      console.log(response);
+    })
   }
 
 }]);

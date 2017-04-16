@@ -6,6 +6,7 @@ var fs = require('fs');
 
 // Require the models here
 require('./server/models/user');
+require('./server/models/asset');
 
 var app = express();
 

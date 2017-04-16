@@ -8,7 +8,8 @@ module.exports = function(app){
     var service = require('./controllers/serviceController');
 
     // API Endpoint
-    app.post('/login', bodyParser.json(), service.login)
+    app.post('/login', bodyParser.json(), service.login);
+    app.post('/addAsset', bodyParser.json(), service.addAsset);
 
     //
 
