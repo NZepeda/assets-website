@@ -3,25 +3,75 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
 
 <!-- Our styles -->
 <link rel="stylesheet" href="css/styles.css">
 
-<!-- Javascript Libraries -->
+</head>
+
+<body ng-controller="ViewController">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 centered">
+                <h1> Assets List</div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <table id="assetTable" class="table table-bordered compact hover" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Model</th>
+                            <th>Date Purchased</th>
+                            <th>Purchase Price</th>
+                            <th>Retired Date</th>
+                            <th>Warranty Expirtation</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="asset in assets">
+                            <td> {{asset.info.category}} </td>
+                            <td> {{asset.info.model}} </td>
+                            <td> {{asset.info.datePurchased}} </td>
+                            <td> {{asset.info.purchasePrice}} </td>
+                            <td> {{asset.info.retiredDate}} </td>
+                            <td> {{asset.info.warExpiration}} </td>
+                            <td> {{asset.info.description}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+    <!-- Javascript Libraries -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="scripts/angular/angular.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 
 <!-- Our JavaScript -->
 <script src="js/application.js"></script>
 <script src="js/controllers.js"></script>
 <script src="js/services.js"></script>
 
-</head>
-
-<body ng-controller="ViewController">
-
-
+<script>
+    $(window).on('load', function(){
+        console.log("Firing!");
+        var table = $('#assetTable').DataTable({
+            responsive: true
+        });             
+    });
+</script>
 </body>
 
 </html>

@@ -60,7 +60,19 @@ controllerModule.controller('AddController', ['$scope','$q', 'Data', function($s
 }]);
 
 controllerModule.controller('ViewController', ['$scope', '$q', 'Data', function($scope, $q, Data){
+
+  // Model as empty object at initialization
+  $scope.assets = {};
+  $scope.assetInfo = {};
+  $scope.manufacturer = {};
+
+  $scope.infoHeaders = ["Category", "Model", "Date Purchased", "Purchace Price", "Retired Date", "Warranty Expiration", "Description"]
+
   Data.getAllAssets().then(function(response){
-    console.log(response);
+    $scope.assets = response.data;
+    $scope.assetInfo = response.data.info;
+    $scope.manufacturer = response.data.manufacturer;
+
+    console.log($scope.assets);
   });
 }]);
