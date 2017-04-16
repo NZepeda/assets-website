@@ -34,3 +34,15 @@ exports.addAsset = function(req, res){
     });
     
 }
+
+exports.getAllAssets = function(req, res){
+    Asset.find({}, function(err, results){
+        if(err){
+            res.status(500).send(err);
+        }
+        else{
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).send(results);
+        }
+    })
+}

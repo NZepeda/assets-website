@@ -30,8 +30,20 @@ serviceModule.service('Data', ['$location', '$http', '$window', '$q', function($
             return response;
         }).catch(function(error){
             console.log(error);
-        })
+        });
     }
-    // ToDo: Implement service functions here
+
+    data.getAllAssets = function(){
+        return $http({
+            method: 'GET',
+            url: 'http://' + location.host + '/getAssets'
+        }).
+        then(function(response){
+            return response;
+        }).catch(function(error){
+            console.log(error);
+        });
+    }
+    
     return data;
 }]);

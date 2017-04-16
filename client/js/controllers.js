@@ -16,7 +16,7 @@ controllerModule.controller('LoginController', ['$scope', '$q', '$location', '$w
     Data.login(user).then(function(response){
       
       if(response.data.loginSuccess == true){
-        $window.location.href = '/add';
+        $window.location.href = '/view';
       }
       else{
         toastr.error('Invalid credentials');
@@ -52,10 +52,15 @@ controllerModule.controller('AddController', ['$scope','$q', 'Data', function($s
   }
 
   $scope.addAsset = function(){
-    console.log($scope.asset);
     Data.addAsset($scope.asset).then(function(response){
       console.log(response);
-    })
+    });
   }
 
+}]);
+
+controllerModule.controller('ViewController', ['$scope', '$q', 'Data', function($scope, $q, Data){
+  Data.getAllAssets().then(function(response){
+    console.log(response);
+  });
 }]);
