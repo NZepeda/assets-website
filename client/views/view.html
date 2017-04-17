@@ -27,6 +27,7 @@
                     <thead>
                         <tr>
                             <th>Category</th>
+                            <th>Asset Id </th>
                             <th>Model</th>
                             <th>Date Purchased</th>
                             <th>Purchase Price</th>
@@ -40,6 +41,7 @@
                     <tbody>
                         <tr ng-repeat="asset in assets">
                             <td> {{asset.info.category}} </td>
+                            <td> {{asset._id}}</td>
                             <td> {{asset.info.model}} </td>
                             <td> {{asset.info.datePurchased}} </td>
                             <td> {{asset.info.purchasePrice}} </td>
