@@ -10,8 +10,10 @@ module.exports = function(app){
     // API Endpoint
     app.post('/login', bodyParser.json(), service.login);
     app.post('/addAsset', bodyParser.json(), service.addAsset);
+    app.post('/updateAsset', bodyParser.json(), service.updateAsset);
     app.get('/getAssets', service.getAllAssets);
-
+    app.post('/getSingleAsset',bodyParser.json(), service.getSingleAsset);
+    app.post('/deleteAsset', bodyParser.json(), service.deleteAsset);
     //
 
     app.get('/', function(req, res){
@@ -28,7 +30,12 @@ module.exports = function(app){
 
     app.get('/view', function(req, res){
         res.sendFile(path.resolve(__dirname + '/../client/views/view.html'));
-    })
+    });
+
+    app.get('/update', function(req, res){
+        res.sendFile(path.resolve(__dirname + '/../client/views/update.html'));
+    });
+
 
     // Static mapping redirects
     app.use('/js', express.static(__dirname + '/../client/js'));

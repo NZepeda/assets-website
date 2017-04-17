@@ -44,5 +44,43 @@ exports.getAllAssets = function(req, res){
             res.setHeader('Content-Type', 'application/json');
             res.status(200).send(results);
         }
-    })
+    });
+}
+
+exports.updateAsset = function(req, res){
+    console.log(req.body);
+    Asset.findOne({_id: req.body.id}, function(err, asset){
+        if(err){
+            res.status(500).send("Unable to update the asset");
+        }
+        if(asset){
+            console.log(asset);
+            asset.info = req.body.info;
+            asset.manufacturer = req.body.manufacturer;
+            asset.save();
+        }
+    });
+    res.status(200).send("Good");
+}
+
+exports.getSingleAsset = function(req, res){
+    Asset.findOne({_id: req.body.assetId}, function(err, asset){
+        if(err){
+            res.status(500).send("Unable to query db");
+        }
+        if(asset){ 
+            res.status(200).send(asset);                      
+        }       
+    });   
+}
+
+exports.deleteAsset = function(req, res){
+    Asset.findOneAndRemove({_id: req.body.assetId}, function(err){
+        if(err){
+            res.status(500).send("Unable to delete asset");
+        }
+        else{
+            res.status(200).send("Successfully deleted asset");
+        }
+    });
 }

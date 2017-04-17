@@ -26,7 +26,7 @@ controllerModule.controller('LoginController', ['$scope', '$q', '$location', '$w
   }
 }]);
 
-controllerModule.controller('AddController', ['$scope','$q', 'Data', function($scope, $q, Data){
+controllerModule.controller('AddController', ['$scope','$q', '$window', 'Data', function($scope, $q, $window, Data){
   
   $scope.manufacturer = {
     name: "",
@@ -53,13 +53,13 @@ controllerModule.controller('AddController', ['$scope','$q', 'Data', function($s
 
   $scope.addAsset = function(){
     Data.addAsset($scope.asset).then(function(response){
-      console.log(response);
+      $window.location.href = "/view";
     });
   }
 
 }]);
 
-controllerModule.controller('ViewController', ['$scope', '$q', 'Data', function($scope, $q, Data){
+controllerModule.controller('ViewController', ['$scope', '$q', 'Data', '$window', function($scope, $q, Data, $window){
 
   // Model as empty object at initialization
   $scope.assets = {};
@@ -72,7 +72,41 @@ controllerModule.controller('ViewController', ['$scope', '$q', 'Data', function(
     $scope.assets = response.data;
     $scope.assetInfo = response.data.info;
     $scope.manufacturer = response.data.manufacturer;
-
-    console.log($scope.assets);
   });
+
+  $scope.addNewAsset = function(){
+    $window.location.href = '/add';
+  }
+
+  $scope.updateAssetButtonClicked = function(assetId){
+    $window.location.href = '/update?id=' + assetId;
+  }
+
+  $scope.deleteAssetButotnClicked = function(assetId){
+    Data.deleteAsset(assetId).then(function(){
+      $window.location.reload();
+    });
+  }
+}]);
+
+controllerModule.controller('UpdateController', ['$scope', '$q', '$window', '$location','$routeParams', 'Data', function($scope, $q, $window, $location, $routeParams, Data){
+  var id = $location.search().id;
+
+  Data.getSingleAsset(id).then(function(response){
+    $scope.info = response.data.info;
+    $scope.manufacturer = response.data.manufacturer;
+  });
+
+  $scope.updateAssetButtonClick = function(){
+    $scope.asset = {
+      manufacturer: $scope.manufacturer,
+      info: $scope.info,
+      id: id
+    }
+
+    Data.updateAsset($scope.asset).then(function(response){
+      $window.location.href = '/view';
+    });
+  }
+
 }]);
